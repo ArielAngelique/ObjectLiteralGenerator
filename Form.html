@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" rel="stylesheet" />
+        <title>JSON OL Generator</title>
+    </head>
+    <body>
+        <main>
+            <div class = "generator">
+                <h1>JSON OL Generator</h1>
+                <form id="inputs" name="theForm">
+                    <!-- Set pre-populated / required keys -->
+                    <table id="theTable">
+                        <tr><td><label for="name" id="lab1">name: </label></td><td><input id="val1" type="text" placeholder="Enter Username" required /></td></tr>
+                        <tr><td><label for="password" id="lab2">password: </label></td><td><input id="val2" type="text" placeholder="Enter Password" required /></td></tr>
+                        <tr><td><label for="email" id="lab3">email: </label></td><td><input id="val3" type="text" placeholder="Enter Email" required /></td></tr>
+                        <tr><td><label for="url" id="lab4">url: </label></td><td><input id="val4" type="text" placeholder="Enter URL" required /></td></tr>
+                        <tr><td><label for="mfa-email" id="lab5">mfa_email_address: </label></td><td><input id="val5" type="text" placeholder="Enter MFA Email" required /></td></tr>
+                        <tr><td><label for="mfa-password" id="lab6">mfa_email_password: </label></td><td><input id="val6" type="text" placeholder="Enter MFA Password" required /></td></tr>
+                        <tr><td><label for="mfa-domain" id="lab7">domain: </label></td><td><input id="val7" type="text" placeholder="Enter MFA Domain" required /></td></tr>
+                    
+                
+                    </table>
+                    <hr>
+                    <!-- Dropdown to add extra line items -->
+                    <div class="addon">
+                        <span>
+                            <label for="new-item">Add another item:</label>
+                            <select id="type-dropdown">
+                                <option value="placeholder" disabled selected>Add Another Item</option>
+                                <option value="security-q">Security Question</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                            <button type="button" id="add-item" onclick="newItem()">Add Item</button>
+                        </span>
+                    </div>
+            
+                    <hr>
+                    <button type="button" id="generate" onclick="generateJSON()">Generate JSON</button>
+                    <hr>
+                </form>
+                <!-- Output Display -->
+                <h3>JSON Output</h3>
+                <div class="output" id="JSON" contenteditable="false">Your JSON Output will appear here.</div>
+                <span class="editing-footer">CURRENTLY EDITING</span>
+                </div>
+        </main>
+        <script src="./Script.js"></script>
+    </body>
+    <footer>
+        <ol><li>All pre-set items are required at present for plans to run. Extra fields may be entered as desired.</li></br>
+            <li>It's best practice to avoid using backlashes (\) or quotation marks (") in your entries, as they can cause the code to have issues. </li></br>
+            <li>Choosing Security Question will pre-populate the key with "SQ: ". Please enter the full question as it appears on the portal afterwards. This is to encourage data consistency in case it is used in the plan in the future.</li></br>
+            <li>Manual editing of the JSON should be done with caution! Errors will cause plans to fail. It's recommended you edit via the above form, or in an editor with syntax highlighting to avoid mistakes. Use this button only if you are SURE you want to edit in this app: </br><button type="button" id="edit" onclick="toggleEdit();">Edit JSON Output</button> </li>
+            
+        </ol>
+    </footer>
+    
+</html>
