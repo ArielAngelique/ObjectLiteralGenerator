@@ -15,6 +15,14 @@ body {
     font-size: 40px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
+  #theTable {
+    table-layout: fixed;
+    width: 100%;
+    
+  }
+  #theTable td {
+    width: 100%;
+  }
 
   footer, .generator, .output {
     margin-left: auto;
